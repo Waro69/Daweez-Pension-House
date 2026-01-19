@@ -1,0 +1,388 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: url('front.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+
+/* NAVBAR */
+
+   .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;   
+    z-index: 1000;
+    transition: top 0.3s; /* smooth slide */
+
+
+}
+
+
+/* Navbar image logo */
+.logo-img {
+    width: 300px;   /* Change this value to resize */
+    height: auto;   /* keeps original aspect ratio */
+    display: block;
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin-left: 400px;
+    justify-content: right;
+}
+
+.nav-links a {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #cfa670;
+}
+
+.nav-btn {
+    background: #cfa670;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #b8935c;
+    transform: scale(1.05);
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background: rgba(0,0,0,0.9);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ), url('front.jpg') no-repeat center center / cover;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-top: 350px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #cfa670;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b8935c;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    background: #271e31;
+}
+
+section:nth-of-type(even) {
+    background-color: #f8f9fa;
+    
+}
+
+section h2 {
+    color: #cfa670;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+section p {
+    text-align: justify;
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.3rem;
+    color: WHITE;
+}
+
+
+
+    
+
+/* Grid & Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255,255,255,0.2);   /* glassmorphic look */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.card .content {
+    padding: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Lightbox overlay */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+//* MODERN REVIEWS SECTION */
+#reviews {
+    text-align: center;
+    background: #f0f4f8;
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reviews h2 {
+    font-size: 2.8rem;
+    color: #cfa670;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/* Grid layout */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* Glassmorphic review cards */
+.review-card {
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    backdrop-filter: blur(10px);          /* blur behind the card */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+/* Hover effect for modern feel */
+.review-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* Review text */
+.review-card p {
+    font-size: 1rem;
+    font-style: normal;  /* modern feel: remove italic */
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Reviewer name */
+.review-card h4 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Reviewer role or source */
+.review-card span {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #reviews h2 {
+        font-size: 2rem;
+    }
+
+    .reviews-grid {
+        gap: 20px;
+    }
+}
+
+
+/* FOOTER */
+footer {
+    background: black;
+    color: #bbb;
+    text-align: center;
+    padding: 25px 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daweez Pension House</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar">
+
+            
+            <a href="#home" class="logo">
+    <img src="longlogo.png" alt="Daweez Logo" class="logo-img">
+</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://www.facebook.com/daweez.pension.house#" class="btn nav-btn">Book Now!</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <h1>Feel at Home, Away from Home.</h1>
+                
+                <a href="#rooms" class="btn">View Rooms and Amenities</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Daweez Pension House is a peaceful and welcoming place designed for guests who value comfort, cleanliness, and a relaxed atmosphere. Whether you’re visiting for rest, work, or special gatherings, we aim to provide a stay that feels easy, calm, and truly comfortable.
+
+Our rooms and surroundings are well-maintained, clean, and thoughtfully prepared to give you a home-away-from-home experience. Guests often appreciate our quiet environment, accommodating staff, and the warm hospitality that makes every stay more enjoyable.
+
+Highly rated by our guests, Daweez Pension House takes pride in offering dependable service, a peaceful setting, and a comfortable space where you can unwind and feel at ease from the moment you arrive.
+        </p>
+    </section>
+
+    <!-- ROOMS SECTION -->
+<section id="rooms">
+    <h2>Our Rooms & Amenities</h2>
+
+    <div class="grid">
+        <!-- Family Room -->
+        <div class="card">
+            <img src="2.jpg" alt="Family Room" class="clickable-img">
+            <div class="content">
+                <h3>Family Room</h3>
+                <p>Spacious room with ocean view and modern comfort.</p>
+            </div>
+        </div>
+
+        <!-- Beach Front Reception -->
+        <div class="card">
+            <img src="1.jpg" alt="Beach Front Reception" class="clickable-img">
+            <div class="content">
+                <h3>Beach Front Reception</h3>
+                <p>Perfect for families with complete amenities.</p>
+            </div>
+        </div>
+
+        <!-- Function Hall -->
+        <div class="card">
+            <img src="seminar.jpg" alt="Function Hall" class="clickable-img">
+            <div class="content">
+                <h3>Function Hall</h3>
+                <p>Perfect venue for workshops and seminars.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>
+            📍 35MC+CFQ, City of Tandag, Surigao del Sur <br>
+            📞 +63 9469551428 <br>
+            ✉️ info@paradiseresort.com
+        </p>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews">
+        <h2>What Our Guests Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p>"A fantastic hotel I’m just staying there and I love it. I think it’s the best place to stay in Tandag!"</p>
+                <h4>Fernando de Paz</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"A very good place for seminar/workshops. Peaceful and beautiful place."</p>
+                <h4>Romnick Guilermo</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"Clean with a feeling at home environment. Staffs and owners are very accommodating. Highly recommended 👌"</p>
+                <h4>Jerry Jhon Alcoseba</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"No doubt I recommend this place, the room is quiet good, the staff is approachable, the ambiance is so relaxing, the food is delicious."</p>
+                <h4>John Rey Aloot</h4>
+                <span>Guest</span>
+            </div>
+            <div class="review-card">
+                <p>"Clean with a feeling at home environment. Staffs and owners are very accommodating."</p>
+                <h4>Effie Langrich</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"Great venue for relaxing."</p>
+                <h4>Zeus Calunsag</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"One of the best here in Tandag ❤️"</p>
+                <h4>Too SeeRow</h4>
+                <span>Local Guide</span>
+            </div>
+            <div class="review-card">
+                <p>"Nice place to unwind."</p>
+                <h4>Gerarddolf Lagunday</h4>
+                <span>Local Guide</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Paradise Resort. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS for Hamburger Menu -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+<script>
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop) {
+        // Scroll down → hide navbar
+        navbar.style.top = "-150px";
+    } else {
+        // Scroll up → show navbar
+        navbar.style.top = "0";
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+});
+</script>
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const clickableImages = document.querySelectorAll('.clickable-img');
+const closeBtn = document.querySelector('.lightbox .close');
+
+clickableImages.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>

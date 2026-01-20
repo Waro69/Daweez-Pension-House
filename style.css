@@ -157,3 +157,46 @@ input:focus {
     outline: 2px solid #d4af37;
     border-color: transparent;
 }
+
+/* =========================================
+   10. FAQ SECTION STYLING
+   ========================================= */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.faq-card {
+    background: #fff;
+    padding: 25px;
+    text-align: left;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.faq-card:hover {
+    border-color: #d4af37;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.faq-card h4 {
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.faq-card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Mobile Fix for FAQ */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,388 +1,159 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================================
+   1. CORE GLOBAL STYLES
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+    background: #fdfcfb; 
+    color: #333; 
+    line-height: 1.6; 
+    scroll-behavior: smooth; 
 }
 
-html {
-    scroll-behavior: smooth;
+/* Common Section Layout */
+.content-section { padding: 80px 10%; text-align: center; }
+.section-title { font-size: 2.2rem; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; }
+.grey-bg { background-color: #f2f2f2; }
+
+/* =========================================
+   2. NAVIGATION & LOGO
+   ========================================= */
+nav { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 1rem 8%; background: #1a1a1a; 
+    position: sticky; top: 0; z-index: 1000; 
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #2c3e50;
-    background: url('front.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-color: black;
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.main-logo { height: 50px; width: auto; display: block; }
+.logo-text { color: #d4af37; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { 
+    color: #fff; text-decoration: none; font-size: 0.8rem; 
+    text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; 
+}
+.nav-links a:hover { color: #d4af37; }
+
+/* =========================================
+   3. HERO SECTION (Fixes overlapping)
+   ========================================= */
+.hero { 
+    height: 80vh; 
+    /* EDIT HERE: Background image for the top section */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('front.jpg');
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    padding-bottom: 80px; /* Space buffer for the booking bar */
 }
 
+.hero-content { color: white; max-width: 800px; }
+.hero-title { font-size: 4rem; margin-bottom: 10px; }
+.hero-subtitle { font-size: 1.4rem; margin-bottom: 30px; font-weight: 300; }
 
-/* NAVBAR */
-
-   .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 5%;   
-    z-index: 1000;
-    transition: top 0.3s; /* smooth slide */
-
-
-}
-
-
-/* Navbar image logo */
-.logo-img {
-    width: 300px;   /* Change this value to resize */
-    height: auto;   /* keeps original aspect ratio */
-    display: block;
-}
-
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    margin-left: 400px;
-    justify-content: right;
-}
-
-.nav-links a {
-    margin-left: 10px;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #cfa670;
-}
-
-.nav-btn {
-    background: #cfa670;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-.nav-btn:hover {
-    background: #b8935c;
-    transform: scale(1.05);
-}
-
-/* HAMBURGER MENU */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
+/* The Gold Button from your image */
+.hero-btn { 
+    background-color: #d4af37; 
+    color: #000; 
+    padding: 15px 40px; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    border-radius: 4px; 
+    display: inline-block;
     transition: 0.3s;
 }
+.hero-btn:hover { background-color: #bfa030; transform: scale(1.05); }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+/* =========================================
+   4. BOOKING BAR (Fixes overlapping)
+   ========================================= */
+.booking-wrapper { 
+    position: relative; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    z-index: 10; 
 }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 5%;
-    background: rgba(0,0,0,0.9);
-    padding: 15px;
+.booking-bar {
+    background: #fff; 
+    width: 90%; 
+    max-width: 1000px; 
+    margin-top: -60px; /* Pulls bar UP into hero image */
+    padding: 2rem; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: flex-end;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
     border-radius: 8px;
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background: linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
-    ), url('front.jpg') no-repeat center center / cover;
+.input-group { display: flex; flex-direction: column; flex: 1; margin: 0 10px; }
+.input-group label { font-size: 0.7rem; color: #999; text-transform: uppercase; margin-bottom: 5px; }
+.input-group input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+
+.book-btn { 
+    background: #1a1a1a; color: #d4af37; padding: 12px 25px; 
+    border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; 
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-top: 350px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
+/* =========================================
+   5. ROOMS & REVIEWS GRIDS
+   ========================================= */
+.room-grid, .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.room-card, .review-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.room-img { height: 250px; background-size: cover; background-position: center; }
+.room-info, .review-card { padding: 25px; }
+.review-card { border-top: 5px solid #d4af37; text-align: left; font-style: italic; }
+.stars { color: #d4af37; margin-top: 10px; }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
+/* =========================================
+   6. AMENITY ICONS
+   ========================================= */
+.amenity-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
+.amenity-item span { font-size: 3rem; display: block; margin-bottom: 10px; }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #cfa670;
-    color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer { background: #1a1a1a; color: #666; padding: 50px; text-align: center; }
+.footer-logo { color: #d4af37; font-weight: bold; margin-bottom: 10px; letter-spacing: 2px; }
 
-.btn:hover {
-    background: #b8935c;
-}
-
-/* SECTIONS */
-section {
-    padding: 80px 10%;
-    background: #271e31;
-}
-
-section:nth-of-type(even) {
-    background-color: #f8f9fa;
-    
-}
-
-section h2 {
-    color: #cfa670;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-
-}
-
-section p {
-    text-align: justify;
-    max-width: 800px;
-    margin: auto;
-    font-size: 1.3rem;
-    color: WHITE;
-}
-
-
-
-    
-
-/* Grid & Cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.card {
-    background: rgba(255,255,255,0.2);   /* glassmorphic look */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    transition: transform 0.3s ease;
-}
-
-.card img:hover {
-    transform: scale(1.05);
-}
-
-.card .content {
-    padding: 20px;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-.card p {
-    color: #555;
-    line-height: 1.5;
-}
-
-/* Lightbox overlay */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-}
-
-.lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-
-//* MODERN REVIEWS SECTION */
-#reviews {
-    text-align: center;
-    background: #f0f4f8;
-    padding: 80px 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#reviews h2 {
-    font-size: 2.8rem;
-    color: #cfa670;
-    margin-bottom: 50px;
-    letter-spacing: 1px;
-}
-
-/* Grid layout */
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    width: 100%;
-}
-
-/* Glassmorphic review cards */
-.review-card {
-    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
-    backdrop-filter: blur(10px);          /* blur behind the card */
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 25px 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-}
-
-/* Hover effect for modern feel */
-.review-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
-
-/* Review text */
-.review-card p {
-    font-size: 1rem;
-    font-style: normal;  /* modern feel: remove italic */
-    color: #333;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-/* Reviewer name */
-.review-card h4 {
-    font-size: 1.1rem;
-    color: #2c3e50;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-/* Reviewer role or source */
-.review-card span {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-/* Responsive adjustments */
+/* =========================================
+   8. MOBILE RESPONSIVENESS (PHONES)
+   ========================================= */
 @media (max-width: 768px) {
-    #reviews h2 {
-        font-size: 2rem;
-    }
-
-    .reviews-grid {
-        gap: 20px;
-    }
+    nav { flex-direction: column; gap: 15px; }
+    .hero-title { font-size: 2.5rem; }
+    .booking-bar { flex-direction: column; margin-top: 20px; align-items: stretch; }
+    .input-group { margin: 0 0 15px 0; }
+    .content-section { padding: 50px 5%; }
 }
 
+/* =========================================
+   9. INTERACTIVE ELEMENTS (Labels)
+   ========================================= */
 
-/* FOOTER */
-footer {
-    background: black;
-    color: #bbb;
-    text-align: center;
-    padding: 25px 10px;
+/* Makes the button slightly smaller when clicked */
+.book-btn:active {
+    transform: scale(0.98);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
+/* Changes the cursor to a pointer so users know it's a button */
+.book-btn {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-    .hamburger {
-        display: flex;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 60px 5%;
-    }
-
-    .nav-btn {
-        font-size: 0.9rem;
-        padding: 8px 20px;
-    }
+/* Adds a gold border to the input fields when clicked */
+input:focus {
+    outline: 2px solid #d4af37;
+    border-color: transparent;
 }
